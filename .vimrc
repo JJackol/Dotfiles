@@ -1,9 +1,4 @@
-"part 1
-"set rtp+=~/.vim/bundle/vundle/
-"filetype plugin indent on
-
 syntax on
-
 
 set nocompatible " not compatible with vi
 set autoread " detect when a file is changed
@@ -97,7 +92,7 @@ set relativenumber
 """ => Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 ""
-""map <leader>ev :e! ~/.vimrc<cr> " edit ~/.vimrc
+map <leader>ev :e! ~/.vimrc<cr> " edit ~/.vimrc
 ""
 map <leader>wc :wincmd q<cr>
 ""
@@ -132,19 +127,20 @@ function! WinMove(key)
         exec "wincmd ".a:key
     endif
 endfunction
-""
+
 if has("autocmd")
   augroup templates
     autocmd BufNewFile *.cpp 0r ~/.vim/templates/skeleton.cpp
-    autocmd BufNewFile *.as 0r ~/.vim/templates/skeleton.as
+    autocmd BufNewFile *.s 0r ~/.vim/templates/skeleton.as
+    autocmd BufNewFile Makefile 0r ~/.vim/templates/skeleton.makefile
   augroup END
 endif
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has("autocmd")
-  augroup templates
-    autocmd BufNewFile *.cpp 0r ~/.vim/templates/skeleton.cpp
-  augroup END
-endif
+
+augroup myvimrchooks
+    au!
+    autocmd bufwritepost .vimrc source ~/.vimrc
+augroup END
+
 """ => Plugin settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 ""
