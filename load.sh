@@ -1,4 +1,5 @@
-echo "source ~/dotfiles/.zsh" >> ~/.zsh
+#!/usr/bin/env bash
+echo "source ~/dotfiles/.zsh" >> ~/.zshrc
 echo "source ~/dotfiles/.nvim" >> ~/.vimrc
-#echo "source ~/dotfiles/.neovim" >> ~/.neovim
+echo "source ~/dotfiles/.profile" >> ~/.profile
 
