@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
-echo "source ~/dotfiles/.zsh" >> ~/.zshrc
-echo "source ~/dotfiles/.nvim" >> ~/.vimrc
-echo "source ~/dotfiles/.profile" >> ~/.profile
-echo "source ~/dotfiles/.aliases" >> ~/.aliases
-#echo "source ~/dotfiles/.tmux.conf" >> ~/.tmux.conf
+echo '[ -f ~/dotfiles/.zsh ] && source ~/dotfiles/.zsh ' >> ~/.zshrc
+echo '[ -f ~/dotfiles/.profile ] && source ~/dotfiles/.profile ' >> ~/.profile
+echo ' source ~/dotfiles/.nvimrc ' >> ~/.config/nvim/init.vim
+echo '[ -f ~/dotfiles/.aliases ] && source ~/dotfiles/.aliases ' >> ~/.aliases
+#echo "source ~/dotfiles/.zsh" >> ~/.zshrc
+#echo "source ~/dotfiles/.nvimrc" >> ~/.config/nvim/init.vim
+#echo "source ~/dotfiles/.profile" >> ~/.profile
+#echo "source ~/dotfiles/.aliases" >> ~/.aliases
+##echo "source ~/dotfiles/.tmux.conf" >> ~/.tmux.conf
+
 

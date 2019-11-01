@@ -10,3 +10,4 @@ export READER="zathura"
 export FILE="lf"
 
 alias vim="nvim"
+source ~/dotfiles/.aliases

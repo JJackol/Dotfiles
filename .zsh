@@ -2,24 +2,24 @@
 
 
 source $HOME/dotfiles/zsh/git_prompt.sh
-#setopt PROMPT_SUBST 
+#setopt PROMPT_SUBST
 
 # Enable colors and change prompt:
-ppre1="%B%{$fg[red]%}[%{$reset_color%}%T %b%W %B%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%{$PWD%}%{$reset_color%} "
+autoload -U colors && colors
+ppre1="%B%{$fg[red]%}[%{$reset_color%}%T %b%W %B%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%c%{$reset_color%} "
 poo2="%B%{$fg[red]%}]%{$reset_color%}$%b"
 precmd () { __git_ps1  $ppre1  $poo2  "%s" }
-autoload -U colors && colors
 #PS1='%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M  %{$fg[magenta]%}% %{$reset_color%}%c$(__git_ps1 " (%s)") %{$fg[red]%}]%{$reset_color%}$%b '
 #PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M  %{$fg[magenta]%}%     %c$(__git_ps1 " ()")        %{$fg[red]%}]%{$reset_color%}$%b "
 #PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M  %{$fg[magenta]%}%   %{$fg[red]%}]%{$reset_color%}$%b "
 
-#setopt PROMPT_SUBST 
+#setopt PROMPT_SUBST
 #PS1='[%n@%m %c$(__git_ps1 " (%s)")]\$ '
 
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.cache/zsh/history
+HISTFILE=/home/jaca/.zsh_history
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -79,8 +79,8 @@ bindkey '^e' edit-command-line
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+[ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
 
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-source ~/.aliases
 
