@@ -1,2 +1,4 @@
 alias vim="nvim"
+alias p="python3 -i /home/jaca/.my_py.py"
 
+alias xilinx="~/scripts/run_xilinx.sh"

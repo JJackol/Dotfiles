@@ -19,7 +19,21 @@ Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'vifm/vifm.vim'
 Plug 'kovetskiy/sxhkd-vim'
+
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsListSnippets="<s-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+
+let g:python3_host_prog="/usr/bin/python3.7"
+
+
 
 set bg=light
 set go=a
@@ -118,10 +132,10 @@ endfunction
 
 if has("autocmd")
 	augroup templates
-		autocmd BufNewFile *.cpp 0r ~/.vim/templates/skeleton.cpp
-		autocmd BufNewFile *.s 0r ~/.vim/templates/skeleton.as
-		autocmd BufNewFile Makefile 0r ~/.vim/templates/skeleton.makefile
-		autocmd BufNewFile *.h call LoadMyClass()
+	"	autocmd BufNewFile *.cpp 0r ~/.vim/templates/skeleton.cpp
+	"	autocmd BufNewFile *.s 0r ~/.vim/templates/skeleton.as
+	"	autocmd BufNewFile Makefile 0r ~/.vim/templates/skeleton.makefile
+		"autocmd BufNewFile *.h call LoadMyClass()
 	augroup END
 
 	augroup myvimrchooks
@@ -142,7 +156,7 @@ set background=dark
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Goyo plugin makes text more readable when writing prose:
-"	map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
+	map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
 
 " Spell-check set to <leader>o, 'o' for 'orthography':
 "	map <leader>o :setlocal spell! spelllang=en_us<CR>

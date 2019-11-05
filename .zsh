@@ -1,4 +1,4 @@
-## Luke's config for the Zoomer Shell
+## Jaca config for the Zoomer Shell
 
 
 source $HOME/dotfiles/zsh/git_prompt.sh
@@ -6,7 +6,7 @@ source $HOME/dotfiles/zsh/git_prompt.sh
 
 # Enable colors and change prompt:
 autoload -U colors && colors
-ppre1="%B%{$fg[red]%}[%{$reset_color%}%T %b%W %B%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%c%{$reset_color%} "
+ppre1="%B%{$fg[red]%}[%{$reset_color%}%b %j %B%{$fg[cyan]%}%T %b %B%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$reset_color%} "
 poo2="%B%{$fg[red]%}]%{$reset_color%}$%b"
 precmd () { __git_ps1  $ppre1  $poo2  "%s" }
 #PS1='%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M  %{$fg[magenta]%}% %{$reset_color%}%c$(__git_ps1 " (%s)") %{$fg[red]%}]%{$reset_color%}$%b '
