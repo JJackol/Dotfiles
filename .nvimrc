@@ -8,28 +8,38 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdtree'
-Plug 'junegunn/goyo.vim'
-Plug 'PotatoesMaster/i3-vim-syntax'
-Plug 'jreybert/vimagit'
-Plug 'LukeSmithxyz/vimling'
-Plug 'vimwiki/vimwiki'
-Plug 'bling/vim-airline'
-Plug 'tpope/vim-commentary'
-Plug 'vifm/vifm.vim'
-Plug 'kovetskiy/sxhkd-vim'
+	Plug 'tpope/vim-surround'
+	Plug 'scrooloose/nerdtree'
+	Plug 'junegunn/goyo.vim'
+	Plug 'PotatoesMaster/i3-vim-syntax'
+	Plug 'jreybert/vimagit'
+	Plug 'LukeSmithxyz/vimling'
+	Plug 'vimwiki/vimwiki'
+	Plug 'bling/vim-airline'
+	Plug 'tpope/vim-commentary'
+	Plug 'vifm/vifm.vim'
+	Plug 'kovetskiy/sxhkd-vim'
 
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'SirVer/ultisnips'
+	Plug 'honza/vim-snippets'
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
+" use ,F to jump to tag in a vertical split
+nnoremap <silent> ,F :let word=expand("<cword>")<CR>:vsp<CR>:wincmd w<cr>:exec("tag ". word)<cr>
+" use ,gf to go to file in a vertical split
+nnoremap <silent> ,gf :vertical botright wincmd f<CR>
+" see more at http://skwp.github.com/dotfiles
+
+
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsListSnippets="<s-tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-f>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsListSnippets="<s-tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-f>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 let g:python3_host_prog="/usr/bin/python3.7"
 
@@ -79,6 +89,11 @@ set hlsearch
 set incsearch " set incremental search, like modern browsers
 set nolazyredraw " don't redraw while executing macros
 set laststatus=2 " show the satus line all the time
+
+"80 char mark
+"set textwidth=80
+"set colorcolumn=+1
+
 
 set showcmd
 set showmode
@@ -140,7 +155,7 @@ if has("autocmd")
 
 	augroup myvimrchooks
 		au!
-		autocmd bufwritepost .vimrc source ~/.vimrc
+		"autocmd bufwritepost .vimrc source ~/.vimrc
 		autocmd bufwritepost ~/.config/nvim/init.vim source ~/.config/nvim/init.vim
 		autocmd bufwritepost ~/dotfiles/.nvimrc source ~/dotfiles/.nvimrc
 	augroup END
@@ -225,9 +240,9 @@ set background=dark
 	autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
 
 " Navigating with guides
-"	inoremap <leader><leader> <Esc>/<++><Enter>"_c4l
-"	vnoremap <leader><leader> <Esc>/<++><Enter>"_c4l
-"	map <leader><leader> <Esc>/<++><Enter>"_c4l
+	inoremap <leader><leader> <Esc>/<++><Enter>"_c4l
+	vnoremap <leader><leader> <Esc>/<++><Enter>"_c4l
+	map <leader><leader> <Esc>/<++><Enter>"_c4l
 
 " Save file as sudo on files that require root permission
 	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
@@ -336,9 +351,9 @@ set background=dark
 	autocmd Filetype markdown,rmd inoremap ,2 ##<Space><Enter><++><Esc>kA
 	autocmd Filetype markdown,rmd inoremap ,3 ###<Space><Enter><++><Esc>kA
 	autocmd Filetype markdown,rmd inoremap ,l --------<Enter>
-	autocmd Filetype rmd inoremap ,r ```{r}<CR>```<CR><CR><esc>2kO
-	autocmd Filetype rmd inoremap ,p ```{python}<CR>```<CR><CR><esc>2kO
-	autocmd Filetype rmd inoremap ,c ```<cr>```<cr><cr><esc>2kO
+	autocmd Filetype markdown,rmd inoremap ,r ```{r}<CR>```<CR><CR><esc>2kO
+	autocmd Filetype markdown,rmd inoremap ,p ```{python}<CR>```<CR><CR><esc>2kO
+	autocmd Filetype markdown,rmd inoremap ,c ```<cr>```<cr><cr><esc>2kO
 
 """.xml
 	autocmd FileType xml inoremap ,e <item><Enter><title><++></title><Enter><guid<space>isPermaLink="false"><++></guid><Enter><pubDate><Esc>:put<Space>=strftime('%a, %d %b %Y %H:%M:%S %z')<Enter>kJA</pubDate><Enter><link><++></link><Enter><description><![CDATA[<++>]]></description><Enter></item><Esc>?<title><enter>cit

@@ -1,4 +1,19 @@
+#filetype=sh
 alias vim="nvim"
 alias p="python3 -i /home/jaca/.my_py.py"
 
 alias xilinx="~/scripts/run_xilinx.sh"
+
+	alias ls='ls --color=auto'
+	alias ll='ls -la --color=auto'
+	alias grep='grep --colour=auto'
+	alias egrep='egrep --colour=auto'
+	alias fgrep='fgrep --colour=auto'
+
+#default manj
+alias cp="cp -i"                          # confirm before overwriting something
+alias df='df -h'                          # human-readable sizes
+alias free='free -m'                      # show sizes in MB
+#alias np='nano -w PKGBUILD'
+alias more=less
+alias  pyc='python -i -c "import math;import matplotlib.pyplot as plt;import numpy as np" '
