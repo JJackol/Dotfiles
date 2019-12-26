@@ -6,8 +6,8 @@ source $HOME/dotfiles/zsh/git_prompt.sh
 
 # Enable colors and change prompt:
 autoload -U colors && colors
-ppre1="%B%{$fg[red]%}[%{$reset_color%}%b %j %B%{$fg[cyan]%}%T %b %B%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$reset_color%} "
-poo2="%B%{$fg[red]%}]%{$reset_color%}$%b"
+ppre1="%B[%{$reset_color%}%b %j %B%{$fg[cyan]%}%T %b %B%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$reset_color%} "
+poo2="%B]%{$reset_color%}$%b"
 precmd () { __git_ps1  $ppre1  $poo2  "%s" }
 #PS1='%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M  %{$fg[magenta]%}% %{$reset_color%}%c$(__git_ps1 " (%s)") %{$fg[red]%}]%{$reset_color%}$%b '
 #PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M  %{$fg[magenta]%}%     %c$(__git_ps1 " ()")        %{$fg[red]%}]%{$reset_color%}$%b "

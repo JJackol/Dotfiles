@@ -1,4 +1,6 @@
+
 let mapleader =","
+set shell=/usr/bin/zsh
 
 if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 	echo "Downloading junegunn/vim-plug to manage plugins..."
@@ -8,21 +10,26 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-	Plug 'tpope/vim-surround'
 	Plug 'scrooloose/nerdtree'
 	Plug 'junegunn/goyo.vim'
 	Plug 'PotatoesMaster/i3-vim-syntax'
 	Plug 'jreybert/vimagit'
-	Plug 'LukeSmithxyz/vimling'
+	" Plug 'LukeSmithxyz/vimling'
 	Plug 'vimwiki/vimwiki'
 	Plug 'bling/vim-airline'
-	Plug 'tpope/vim-commentary'
 	Plug 'vifm/vifm.vim'
 	Plug 'kovetskiy/sxhkd-vim'
+	Plug 'tpope/vim-commentary'
+	Plug 'tpope/vim-surround'
 
+	Plug 'tpope/vim-commentary'
+	Plug 'tpope/vim-unimpaired'
+	Plug 'tpope/vim-fugitive'
 	Plug 'SirVer/ultisnips'
 	Plug 'honza/vim-snippets'
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'morhetz/gruvbox'
+
 call plug#end()
 
 " use ,F to jump to tag in a vertical split
@@ -32,14 +39,31 @@ nnoremap <silent> ,gf :vertical botright wincmd f<CR>
 " see more at http://skwp.github.com/dotfiles
 
 
+"" Sends default register to terminal TTY using OSC 52 escape sequence
+"function! Osc52Yank()
+"    let buffer=system('base64 -w0', @0)
+"    let buffer=substitute(buffer, "\n$", "", "")
+"    let buffer='\e]52;c;'.buffer.'\x07'
+"    silent exe "!echo -ne ".shellescape(buffer). " > ".shellescape(g:tty)
+"endfunction
+
+"augroup Yank
+"  autocmd!
+"  autocmd TextYankPost * if v:event.operator ==# 'y' | call Osc52Yank() | endif
+"augroup END
+"
+"" Join yanked text on a yank (needed for terminal mode copies)
+"vnoremap yy y<CR>:let @"=substitute(@", '\n', '', 'g')<CR>:call yank#Osc52Yank()<CR>
+
+
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsListSnippets="<s-tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-f>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsListSnippets="<s-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 let g:python3_host_prog="/usr/bin/python3.7"
 
@@ -92,7 +116,9 @@ set laststatus=2 " show the satus line all the time
 
 "80 char mark
 "set textwidth=80
-"set colorcolumn=+1
+"set colorcolumn=80
+highlight ColorColumn ctermbg=gray
+"set tw=79	"width of text
 
 
 set showcmd
@@ -162,7 +188,8 @@ if has("autocmd")
 
 endif
 
-colorscheme delek
+" colorscheme delek
+colo gruvbox
 set background=dark
 """"""        #############
 " Enable autocompletion:

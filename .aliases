@@ -1,6 +1,7 @@
 #filetype=sh
 alias vim="nvim"
 alias p="python3 -i /home/jaca/.my_py.py"
+alias vi='nvim -c "let g:tty='\''$(tty)'\''"'
 
 alias xilinx="~/scripts/run_xilinx.sh"
 
@@ -17,3 +18,27 @@ alias free='free -m'                      # show sizes in MB
 #alias np='nano -w PKGBUILD'
 alias more=less
 alias  pyc='python -i -c "import math;import matplotlib.pyplot as plt;import numpy as np" '
+
+alias conkyd='conky --daemonize'
+
+
+##
+# Git
+##
+alias gs='git status'
+alias ga='git add'
+alias gap='git add -p'
+alias gb='git branch'
+alias gco='git checkout'
+alias gc='git commit'
+alias gcae='git commit --allow-empty'
+alias gll='git log --oneline'
+alias glo='git log --oneline'
+alias gmnff='git merge --noff'
+alias gta='git tag -a'
+alias gt='git tag'
+alias gsh='git show'
+alias gd='git diff'
+alias gdc='git diff --cached'
+
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset %w(72,1,2)%s -%C(yellow)%d%Creset %Cgreen(%cr %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
