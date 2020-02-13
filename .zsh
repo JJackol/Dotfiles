@@ -1,6 +1,5 @@
 ## Jaca config for the Zoomer Shell
 
-
 source $HOME/dotfiles/zsh/git_prompt.sh
 #setopt PROMPT_SUBST
 

@@ -25,12 +25,237 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-unimpaired'
 	Plug 'tpope/vim-fugitive'
-	Plug 'SirVer/ultisnips'
-	Plug 'honza/vim-snippets'
+	" Plug 'SirVer/ultisnips'
+	" Plug 'honza/vim-snippets'
 	"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'morhetz/gruvbox'
 
+
+  " init.vim (c) monedasperdidas 2016
+  " vim-plug autoconfig if not already installed
+  " Completions and snippets
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'Shougo/neco-vim', { 'for': 'vim' }
+  Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+  Plug 'sebastianmarkow/deoplete-rust', {'for': ' rust '}
+  Plug 'rust-lang/rust.vim', {'for': 'rust' }
+  Plug 'timonv/vim-cargo', { 'for': 'rust' }
+  Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+  Plug 'Quramy/tsuquyomi', {'for': 'typescript' }
+  Plug 'Shougo/neosnippet' | Plug 'Shougo/neosnippet-snippets'
+
+  " Helpers
+  Plug 'sheerun/vimrc'
+  Plug 'Shougo/unite.vim'
+  Plug 'Shougo/denite.nvim'
+  Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+  Plug 'haya14busa/incsearch.vim'
+  Plug 'brooth/far.vim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'tpope/vim-surround'
+  Plug 'vim-scripts/matchit.zip'
+  Plug 'easymotion/vim-easymotion'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | Plug 'junegunn/fzf.vim'
+  Plug 'edkolev/promptline.vim'
+  Plug 'kassio/neoterm'
+  Plug 'hkupty/nvimux'
+
+  " IDE
+  Plug 'Shougo/vimfiler.vim'
+  Plug 'tomtom/tcomment_vim'
+  Plug 'neomake/neomake'
+  Plug 'tpope/vim-fugitive'
+  Plug 'gregsexton/gitv'
+  Plug 'euclio/gitignore.vim'
+  Plug 'majutsushi/tagbar'
+  Plug 'vim-scripts/indentpython.vim'
+  Plug 'tpope/vim-dotenv'
+  Plug 'ajmwagar/vim-deus'
+  Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+  Plug 'tmhedberg/SimpylFold'
+  Plug 'Konfekt/FastFold'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'miyakogi/seiya.vim'
+  Plug 'sheerun/vim-polyglot'
+
+  " Syntax helpers
+  Plug 'pearofducks/ansible-vim'
+  Plug 'hashivim/vim-vagrant'
+  Plug 'freitass/todo.txt-vim', { 'for': 'todo.txt' }
+  Plug 'raimon49/requirements.txt.vim'
+
 call plug#end()
+
+let g:python_host_prog = '/home/jaca/python/python3vim.venv/bin/python3'
+let g:python3_host_prog = '/home/jaca/python/python3vim.venv/bin/python3'
+
+set clipboard+=unnamedplus
+set completeopt-=preview
+set noshowmode
+set lazyredraw
+set hidden
+set noswapfile
+set ignorecase
+set smartcase
+set magic
+set showmatch
+set nobackup
+set nowb
+set noerrorbells
+set updatetime=250
+
+set colorcolumn=80
+
+set relativenumber
+set number
+set numberwidth=2
+set fileformat=unix
+
+set whichwrap+=<,>,h,l
+
+" let mapleader = "\<Space>"
+
+" wildignoresettings
+" set wildignore+=.*,.git,*.swp,*pyc,*pyo,*.png,*.jpg,*.gif,*.ai,*.jpeg,*.psd,*.jar,*.zip,*.gem,log/**,tmp/**,coverage/**,rdoc/**,output_*,*.xpi,doc/**
+
+" misc edit helps
+nmap <silent> <BS> :nohlsearch<CR>
+nnoremap <silent> <A-right> :bn<CR>
+nnoremap <silent> <A-left> :bp<CR>
+
+" neovim terminal
+tnoremap <Esc> <C-\><C-n>
+
+" conceal markers
+if has('conceal')
+  set conceallevel=2
+endif
+
+" incsearch.vim
+let g:incsearch#auto_nohlsearch = 1
+set hlsearch
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+
+" TagBar
+nmap <C-t> :TagbarToggle<CR>
+
+" " themes and colors
+" set termguicolors
+ set background=dark
+" colorscheme deus
+" let g:seiya_auto_enable=1
+" let g:seiya_target_groups = ['guibg']
+"
+" " vim-airline settings
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#ale#enabled = 1
+" let g:airline_theme = 'dark'
+" let g:airline_powerline_fonts = 1
+" let g:airline_theme='deus'
+"
+" " unite/denite vim
+" nnoremap <leader>f :Denite file_rec<CR>
+" let g:unite_source_grep_command = 'ack-grep'
+" let g:unite_source_grep_default_opts ='-i --no-heading --no-color -k -H'
+" let g:unite_source_grep_recursive_opt = ''
+"
+" " vimfiler
+" let g:vimfiler_as_default_explorer = 1
+" let g:vimfiler_tree_leaf_icon = ''
+" let g:vimfiler_tree_opened_icon = '▾'
+" let g:vimfiler_tree_closed_icon = '▸'
+" let g:vimfiler_marked_file_icon = '✓'
+" let g:vimfiler_readonly_file_icon = '✗'
+" let g:vimfiler_file_icon = ''
+" let g:vimfiler_time_format = '%m-%d-%y %H:%M:%S'
+" let g:vimfiler_expand_jump_to_first_child = 0
+" let g:vimfiler_quick_look_command = 'gloobus-preview'
+" let g:vimfiler_ignore_filters = ['matcher_ignore_wildignore', 'matcher_ignore_pattern ']
+"
+" call vimfiler#custom#profile('default', 'context', {
+"             \ 'direction' : 'rightbelow',
+"             \ 'force_quit': 0,
+"             \ 'safe': 0
+"             \ })
+"
+" map <C-f> :VimFilerExplorer -winwidth=30 -toggle -no-quit -simple<CR>
+" map <leader>f :DeniteProjectDir file_rec -split=vertical -auto-resize -winwidth=35 -no-quit<CR>
+"
+" " fzf.vim
+" nnoremap <C-p> :Files<cr>
+" let g:fzf_layout = { 'right': '~20%' }
+" let g:fzf_colors =
+" \ { 'fg':      ['fg', 'Normal'],
+"   \ 'bg':      ['bg', 'Normal'],
+"   \ 'hl':      ['fg', 'Comment'],
+"   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+"   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+"   \ 'hl+':     ['fg', 'Statement'],
+"   \ 'info':    ['fg', 'PreProc'],
+"   \ 'prompt':  ['fg', 'Conditional'],
+"   \ 'pointer': ['fg', 'Exception'],
+"   \ 'marker':  ['fg', 'Keyword'],
+"   \ 'spinner': ['fg', 'Label'],
+"   \ 'header':  ['fg', 'Comment'] }
+"
+" " Rust settings
+" let g:deoplete#sources#rust#racer_binary='~/.cargo/bin/racer'
+" let g:deoplete#sources#rust#rust_source_path='~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src'
+"
+" " session management
+" let g:session_autosave = 'no'
+"
+" NeoTerm
+let g:neoterm_default_mod = 'vertical'
+let g:neoterm_automap_keys = ',tt'
+let g:neoterm_autoinsert = 1
+nnoremap <silent> <leader>th :Tclose<cr>
+nnoremap <silent> <leader>tl :Tclear<cr>
+nnoremap <silent> <leader>tc :Tkill<cr>
+"
+" " nvr
+" let $VISUAL = 'nvr -cc split --remote-wait'
+"
+" " deoplete + neosnippet + autopairs changes
+" let g:AutoPairsMapCR=0
+" let g:deoplete#auto_complete_start_length = 1
+" let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_smart_case = 1
+" imap <expr><TAB> pumvisible() ? "\<C-n>" : (neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>")
+" imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+" imap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>\<Plug>AutoPairsReturn"
+"
+" " Neomake
+" call neomake#configure#automake('nwr')
+"
+" augroup neovim
+"   autocmd!
+"   autocmd FileType vimfiler set nonumber | set norelativenumber
+"   autocmd Filetype * if &ft!='vimfiler' | set relativenumber | set number | endif
+"   autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+"   autocmd StdinReadPre * let s:std_in=1
+"   autocmd BufWritePre * %s/\s\+$//e
+"   autocmd TermClose * bw!
+"   "autocmd BufWinEnter,WinEnter term://* startinsert
+"   "autocmd BufLeave term://* stopinsert
+"   autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
+" augroup END
+"
+
+
+
+
+
+
+" ##---jaca---##
 
 " use ,F to jump to tag in a vertical split
 nnoremap <silent> ,F :let word=expand("<cword>")<CR>:vsp<CR>:wincmd w<cr>:exec("tag ". word)<cr>
