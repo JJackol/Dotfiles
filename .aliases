@@ -76,3 +76,4 @@ alias ff='find . -type f -name'
 
 alias cls="clear"
 alias activate_data="source /home/jaca/python/data_libs/bin/activate"
+alias activate_django="source /home/jaca/python/django-env/bin/activate"

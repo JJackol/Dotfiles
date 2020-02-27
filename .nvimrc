@@ -29,61 +29,64 @@ call plug#begin('~/.config/nvim/plugged')
 	" Plug 'honza/vim-snippets'
 	"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'morhetz/gruvbox'
+	Plug 'vim-scripts/quickrun.vim'
 
+	" init.vim (c) monedasperdidas 2016
+	" vim-plug autoconfig if not already installed
+	" Completions and snippets
+	Plug 'jiangmiao/auto-pairs'
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'Shougo/neco-vim', { 'for': 'vim' }
+	Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+	Plug 'sebastianmarkow/deoplete-rust', {'for': ' rust '}
+	Plug 'rust-lang/rust.vim', {'for': 'rust' }
+	Plug 'timonv/vim-cargo', { 'for': 'rust' }
+	Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+	Plug 'Quramy/tsuquyomi', {'for': 'typescript' }
+	Plug 'Shougo/neosnippet' | Plug 'Shougo/neosnippet-snippets'
+  "
+	" " Helpers
 
-  " init.vim (c) monedasperdidas 2016
-  " vim-plug autoconfig if not already installed
-  " Completions and snippets
-  Plug 'jiangmiao/auto-pairs'
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'Shougo/neco-vim', { 'for': 'vim' }
-  Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-  Plug 'sebastianmarkow/deoplete-rust', {'for': ' rust '}
-  Plug 'rust-lang/rust.vim', {'for': 'rust' }
-  Plug 'timonv/vim-cargo', { 'for': 'rust' }
-  Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-  Plug 'Quramy/tsuquyomi', {'for': 'typescript' }
-  Plug 'Shougo/neosnippet' | Plug 'Shougo/neosnippet-snippets'
+	" bad theme loading
+	" Plug 'sheerun/vimrc'
 
-  " Helpers
-  Plug 'sheerun/vimrc'
-  Plug 'Shougo/unite.vim'
-  Plug 'Shougo/denite.nvim'
-  Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-  Plug 'haya14busa/incsearch.vim'
-  Plug 'brooth/far.vim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'tpope/vim-surround'
-  Plug 'vim-scripts/matchit.zip'
-  Plug 'easymotion/vim-easymotion'
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | Plug 'junegunn/fzf.vim'
-  Plug 'edkolev/promptline.vim'
-  Plug 'kassio/neoterm'
-  Plug 'hkupty/nvimux'
-
-  " IDE
-  Plug 'Shougo/vimfiler.vim'
-  Plug 'tomtom/tcomment_vim'
-  Plug 'neomake/neomake'
-  Plug 'tpope/vim-fugitive'
-  Plug 'gregsexton/gitv'
-  Plug 'euclio/gitignore.vim'
-  Plug 'majutsushi/tagbar'
-  Plug 'vim-scripts/indentpython.vim'
-  Plug 'tpope/vim-dotenv'
-  Plug 'ajmwagar/vim-deus'
-  Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-  Plug 'tmhedberg/SimpylFold'
-  Plug 'Konfekt/FastFold'
-  Plug 'airblade/vim-gitgutter'
-  Plug 'miyakogi/seiya.vim'
-  Plug 'sheerun/vim-polyglot'
-
-  " Syntax helpers
-  Plug 'pearofducks/ansible-vim'
-  Plug 'hashivim/vim-vagrant'
-  Plug 'freitass/todo.txt-vim', { 'for': 'todo.txt' }
-  Plug 'raimon49/requirements.txt.vim'
-
+	Plug 'Shougo/unite.vim'
+	Plug 'Shougo/denite.nvim'
+	Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+	Plug 'haya14busa/incsearch.vim'
+	Plug 'brooth/far.vim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'tpope/vim-surround'
+	Plug 'vim-scripts/matchit.zip'
+	Plug 'easymotion/vim-easymotion'
+	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | Plug 'junegunn/fzf.vim'
+	Plug 'edkolev/promptline.vim'
+	Plug 'kassio/neoterm'
+	Plug 'hkupty/nvimux'
+  "
+	" " IDE
+	Plug 'Shougo/vimfiler.vim'
+	Plug 'tomtom/tcomment_vim'
+	Plug 'neomake/neomake'
+	Plug 'tpope/vim-fugitive'
+	Plug 'gregsexton/gitv'
+	Plug 'euclio/gitignore.vim'
+	Plug 'majutsushi/tagbar'
+	Plug 'vim-scripts/indentpython.vim'
+	Plug 'tpope/vim-dotenv'
+	Plug 'ajmwagar/vim-deus'
+	Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+	Plug 'tmhedberg/SimpylFold'
+	Plug 'Konfekt/FastFold'
+	Plug 'airblade/vim-gitgutter'
+	Plug 'miyakogi/seiya.vim'
+	Plug 'sheerun/vim-polyglot'
+  "
+	" " Syntax helpers
+	Plug 'pearofducks/ansible-vim'
+	Plug 'hashivim/vim-vagrant'
+	Plug 'freitass/todo.txt-vim', { 'for': 'todo.txt' }
+	Plug 'raimon49/requirements.txt.vim'
+	Plug 'jpalardy/vim-slime'
 call plug#end()
 
 let g:python_host_prog = '/home/jaca/python/python3vim.venv/bin/python3'
@@ -220,6 +223,9 @@ let g:neoterm_autoinsert = 1
 nnoremap <silent> <leader>th :Tclose<cr>
 nnoremap <silent> <leader>tl :Tclear<cr>
 nnoremap <silent> <leader>tc :Tkill<cr>
+
+autocmd Filetype python nnoremap <buffer> <F6> :w<CR>:T python3 -i "%"<CR>
+nnoremap <F12> <ESC>:Ttoggle<CR>
 "
 " " nvr
 " let $VISUAL = 'nvr -cc split --remote-wait'
@@ -256,7 +262,6 @@ nnoremap <silent> <leader>tc :Tkill<cr>
 
 
 " ##---jaca---##
-
 " use ,F to jump to tag in a vertical split
 nnoremap <silent> ,F :let word=expand("<cword>")<CR>:vsp<CR>:wincmd w<cr>:exec("tag ". word)<cr>
 " use ,gf to go to file in a vertical split
@@ -290,7 +295,7 @@ let g:UltiSnipsListSnippets="<s-tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-f>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
-let g:python3_host_prog="/usr/bin/python3.7"
+" let g:python3_host_prog="/usr/bin/python3.7"
 
 
 
@@ -339,6 +344,9 @@ set incsearch " set incremental search, like modern browsers
 set nolazyredraw " don't redraw while executing macros
 set laststatus=2 " show the satus line all the time
 
+"jaca- 
+set inccommand=split
+
 "80 char mark
 "set textwidth=80
 "set colorcolumn=80
@@ -367,6 +375,9 @@ map <leader>wc :wincmd q<cr>
 nnoremap <silent> j gj
 nnoremap <silent> k gk
 
+" jaca-
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 """ helpers for dealing with other people's code
 nmap \t :set ts=4 sts=4 sw=4 noet<cr>
 nmap \s :set ts=4 sts=4 sw=4 et<cr>
@@ -452,8 +463,8 @@ set background=dark
 "	map <leader>s :!clear && shellcheck %<CR>
 
 " Open my bibliography file in split
-	map <leader>b :vsp<space>$BIB<CR>
-	map <leader>r :vsp<space>$REFER<CR>
+	" map <leader>b :vsp<space>$BIB<CR>
+	" map <leader>r :vsp<space>$REFER<CR>
 
 " Replace all is aliased to S.
 	nnoremap S :%s//cg<Left><Left><Left>
