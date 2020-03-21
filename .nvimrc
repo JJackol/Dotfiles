@@ -25,9 +25,9 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-unimpaired'
 	Plug 'tpope/vim-fugitive'
-	" Plug 'SirVer/ultisnips'
-	" Plug 'honza/vim-snippets'
-	"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'SirVer/ultisnips'
+	Plug 'honza/vim-snippets'
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'morhetz/gruvbox'
 	Plug 'vim-scripts/quickrun.vim'
 
@@ -43,7 +43,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'timonv/vim-cargo', { 'for': 'rust' }
 	Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 	Plug 'Quramy/tsuquyomi', {'for': 'typescript' }
-	Plug 'Shougo/neosnippet' | Plug 'Shougo/neosnippet-snippets'
+	" Plug 'Shougo/neosnippet' | Plug 'Shougo/neosnippet-snippets'
   "
 	" " Helpers
 
@@ -91,7 +91,9 @@ call plug#end()
 
 let g:python_host_prog = '/home/jaca/python/python3vim.venv/bin/python3'
 let g:python3_host_prog = '/home/jaca/python/python3vim.venv/bin/python3'
-
+" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
+"                                            \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+"
 set clipboard+=unnamedplus
 set completeopt-=preview
 set noshowmode
@@ -225,12 +227,15 @@ nnoremap <silent> <leader>tl :Tclear<cr>
 nnoremap <silent> <leader>tc :Tkill<cr>
 
 autocmd Filetype python nnoremap <buffer> <F6> :w<CR>:T python3 -i "%"<CR>
-nnoremap <F12> <ESC>:Ttoggle<CR>
+noremap <F12> <ESC>:Ttoggle<CR>
+
+
+" inoremap <silent><expr> <c-space> coc#refresh()
 "
 " " nvr
 " let $VISUAL = 'nvr -cc split --remote-wait'
 "
-" " deoplete + neosnippet + autopairs changes
+" deoplete + neosnippet + autopairs changes
 " let g:AutoPairsMapCR=0
 " let g:deoplete#auto_complete_start_length = 1
 " let g:deoplete#enable_at_startup = 1
@@ -307,7 +312,7 @@ set clipboard+=unnamedplus
 
 " Some basics:
 	nnoremap c "_c
-	set nocompatible
+	" set nocompatible
 	filetype plugin on
 	syntax on
 	set encoding=utf-8
@@ -387,24 +392,28 @@ map <leader>s <esc>:w<cr>
 """ => Functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-map <C-h> :call WinMove('h')<cr>
-map <C-j> :call WinMove('j')<cr>
-map <C-k> :call WinMove('k')<cr>
-map <C-l> :call WinMove('l')<cr>
-
+map <C-h> <ESC>:wincmd h<cr>
+map <C-j> <esc>:wincmd j<cr>
+map <C-k> <esc>:wincmd k<cr>
+map <C-l> <esc>:wincmd l<cr>
+" map <C-h> :call WinMove('h')<cr>
+" map <C-j> :call WinMove('j')<cr>
+" map <C-k> :call WinMove('k')<cr>
+" map <C-l> :call WinMove('l')<cr>
+"
 """ Window movement shortcuts
 """ move to the window in the direction shown, or create a new window
 function! WinMove(key)
     let t:curwin = winnr()
     exec "wincmd ".a:key
-    if (t:curwin == winnr())
-        if (match(a:key,'[jk]'))
-            wincmd v
-        else
-            wincmd s
-        endif
-        exec "wincmd ".a:key
-    endif
+    " if (t:curwin == winnr())
+    "     if (match(a:key,'[jk]'))
+    "         wincmd v
+    "     else
+    "         wincmd s
+    "     endif
+    "     exec "wincmd ".a:key
+    " endif
 endfunction
 
 if has("autocmd")
@@ -444,6 +453,7 @@ set background=dark
 
 " Nerd tree
 	map <leader>n :NERDTreeToggle<CR>
+	map <f2> :NERDTreeToggle<CR>
 	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 "" vimling:

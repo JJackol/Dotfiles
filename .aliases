@@ -1,4 +1,5 @@
 #filetype=sh
+alias aliased="$EDITOR ~/dotfiles/.aliases"
 alias vim="nvim"
 alias p="python3 -i /home/jaca/.my_py.py"
 alias p="python3 -i"
@@ -10,7 +11,7 @@ alias xilinx="~/scripts/run_xilinx.sh"
 
 	alias ls='ls --color=auto'
 	alias ll='ls -la --color=auto'
-	alias grep='grep --colour=auto'
+alias -g grep='grep --colour=auto'
 	alias egrep='egrep --colour=auto'
 	alias fgrep='fgrep --colour=auto'
 
@@ -23,7 +24,6 @@ alias more=less
 alias  pyc='python -i -c "import math;import matplotlib.pyplot as plt;import numpy as np" '
 
 alias conkyd='conky --daemonize'
-
 
 ##
 # Git
@@ -43,16 +43,16 @@ alias gt='git tag'
 alias gsh='git show'
 alias gd='git diff'
 alias gdc='git diff --cached'
+alias gmt='git mergetool'
 
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %w(72,1,2)%s -%C(yellow)%d%Creset %Cgreen(%cr %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
-
+alias glog2="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 ####
 #common aliases , plug
 ####
 alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
 
-alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 
 alias t='tail -f'
@@ -60,7 +60,7 @@ alias t='tail -f'
 # Command line head / tail shortcuts
 alias -g H='| head'
 alias -g T='| tail'
-alias -g G='| grep'
+alias -g G='| grep --colour=auto'
 alias -g L="| less"
 alias -g M="| most"
 alias -g LL="2>&1 | less"

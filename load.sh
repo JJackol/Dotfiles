@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-echo '[ -f ~/dotfiles/.zsh ] && source ~/dotfiles/.zsh ' >> ~/.zshrc
-echo '[ -f ~/dotfiles/.zsh ] && source ~/dotfiles/.zsh ' >> ~/.zshrc
+echo '[ -f ~/dotfiles/.zshrc ] && source ~/dotfiles/.zshrc ' >> ~/.zshrc
 
 echo '[ -f ~/dotfiles/.profile ] && source ~/dotfiles/.profile ' >> ~/.profile
 echo '[ -f ~/dotfiles/.aliases ] && source ~/dotfiles/.aliases ' >> ~/.aliases
